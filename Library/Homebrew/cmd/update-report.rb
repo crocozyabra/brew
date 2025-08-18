@@ -971,19 +971,23 @@ class ReporterHub
 
   sig { params(formula: String).returns(T.nilable(String)) }
   def description(formula)
-    return if Homebrew::EnvConfig.no_install_from_api?
-
-    all_formula_json.find { |f| f["name"] == formula }
-                    &.fetch("desc", nil)
-                    &.presence
+    if Homebrew::EnvConfig.no_install_from_api?
+      Formula[formula].desc&.presence
+    else
+      all_formula_json.find { |f| f["name"] == formula }
+                      &.fetch("desc", nil)
+                      &.presence
+    end
   end
 
   sig { params(cask: String).returns(T.nilable(String)) }
   def cask_description(cask)
-    return if Homebrew::EnvConfig.no_install_from_api?
-
-    all_cask_json.find { |f| f["token"] == cask }
-                 &.fetch("desc", nil)
-                 &.presence
+    if Homebrew::EnvConfig.no_install_from_api?
+      Cask::CaskLoader.load(cask).desc&.presence
+    else
+      all_cask_json.find { |f| f["token"] == cask }
+                   &.fetch("desc", nil)
+                   &.presence
+    end
   end
 end
