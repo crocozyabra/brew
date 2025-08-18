@@ -94,6 +94,16 @@
   "container": {
     "type": "naked"
   },
+  "rename": [
+    {
+      "from": "Foobar.app",
+      "to": "Foo.app"
+    },
+    {
+      "from": "Foo.app",
+      "to": "Bar.app"
+    }
+  ],
   "auto_updates": true,
   "deprecated": false,
   "deprecation_date": null,
@@ -112,6 +122,6 @@
   ],
   "ruby_source_path": "Casks/everything.rb",
   "ruby_source_checksum": {
-    "sha256": "d8d0d6b2e5ff65388eccb82236fd3aa157b4a29bb043a1f72b97f0e9b70e8320"
+    "sha256": "060974deebf32c1d492dd8ab384547f619b5cc5dccf5ce7075411fd5dd2ad442"
   }
 }

@@ -94,6 +94,16 @@
   "container": {
     "type": "naked"
   },
+  "rename": [
+    {
+      "from": "Foobar.app",
+      "to": "Foo.app"
+    },
+    {
+      "from": "Foo.app",
+      "to": "Bar.app"
+    }
+  ],
   "auto_updates": true,
   "deprecated": false,
   "deprecation_date": null,
